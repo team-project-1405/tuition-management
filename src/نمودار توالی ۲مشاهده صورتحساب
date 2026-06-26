@@ -1,0 +1,49 @@
+@startuml
+' ============================================================
+' نمودار توالی ۲: مشاهده صورتحساب دانش‌آموز
+' UC-11: مشاهده صورتحساب
+' ============================================================
+
+title مشاهده صورتحساب دانش‌آموز
+
+actor "مدیر مالی" as FinancialManager
+participant "سیستم" as System
+database "دیتابیس" as Database
+
+== درخواست صورتحساب ==
+FinancialManager -> System: viewBill(studentId)
+activate System
+
+== دریافت اطلاعات دانش‌آموز ==
+System -> Database: getStudent(studentId)
+activate Database
+Database --> System: return Student
+deactivate Database
+
+== دریافت پرداخت‌ها ==
+System -> Database: getAllPayments(studentId)
+activate Database
+Database --> System: return List<Payment>
+deactivate Database
+
+== دریافت اقساط ==
+System -> Database: getAllInstallments(studentId)
+activate Database
+Database --> System: return List<Installment>
+deactivate Database
+
+== محاسبات مالی ==
+System -> System: calculateTotalPaid(payments)
+note right: مجموع مبلغ پرداخت‌ها محاسبه می‌شود
+
+System -> System: calculateTotalDebt(installments, payments)
+note right: بدهی = مجموع اقساط - مجموع پرداخت‌ها
+
+System -> System: calculateInstallmentsStatus(installments)
+note right: وضعیت هر قسط مشخص می‌شود
+
+== نمایش صورتحساب ==
+System --> FinancialManager: displayBill(total, paid, debt, installmentsStatus)
+deactivate System
+
+@enduml
