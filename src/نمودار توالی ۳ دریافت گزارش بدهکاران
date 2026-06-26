@@ -1,0 +1,50 @@
+@startuml
+' ============================================================
+' نمودار توالی ۳: دریافت گزارش بدهکاران (PDF)
+' UC-13: مشاهده لیست بدهکاران + UC-14: دریافت خروجی گزارش
+' ============================================================
+
+title دریافت گزارش بدهکاران (PDF)
+
+actor "مدیر مالی" as FinancialManager
+participant "سیستم" as System
+database "دیتابیس" as Database
+
+== درخواست لیست بدهکاران ==
+FinancialManager -> System: getDebtorsList()
+activate System
+
+== دریافت همه دانش‌آموزان ==
+System -> Database: getAllStudents()
+activate Database
+Database --> System: return List<Student>
+deactivate Database
+
+== محاسبه بدهی برای هر دانش‌آموز ==
+loop برای هر دانش‌آموز
+    System -> Database: getInstallments(studentId)
+    activate Database
+    Database --> System: return List<Installment>
+    deactivate Database
+    
+    System -> System: calculateDebt(student)
+    note right: بدهی = مجموع اقساط معوق
+end
+
+== فیلتر و مرتب‌سازی ==
+System -> System: filter(students with debt > 0)
+note right: فقط دانش‌آموزان بدهکار
+
+System -> System: sortByDebtAmount(descending)
+note right: مرتب‌سازی بر اساس میزان بدهی (نزولی)
+
+== تولید گزارش PDF ==
+FinancialManager -> System: exportPDF(debtorsList)
+
+System -> System: generatePDF(data)
+note right: تولید فایل PDF شامل: نام دانش‌آموز، مبلغ بدهی، تعداد اقساط معوق، جریمه‌ها
+
+System --> FinancialManager: downloadFile("Debtors_Report.pdf")
+deactivate System
+
+@enduml
