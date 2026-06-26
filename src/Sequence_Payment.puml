@@ -1,0 +1,58 @@
+@startuml
+' ============================================================
+' نمودار توالی ۱: ثبت پرداخت جدید (با محاسبه جریمه)
+' UC-08: ثبت پرداخت + UC-09: تولید رسید + UC-10: محاسبه جریمه
+' ============================================================
+
+title ثبت پرداخت جدید با محاسبه جریمه
+
+actor "مدیر مالی" as FinancialManager
+participant "سیستم" as System
+database "دیتابیس" as Database
+
+== انتخاب دانش‌آموز ==
+FinancialManager -> System: selectStudent(studentId)
+activate System
+
+System -> Database: getStudentInfo(studentId)
+activate Database
+Database --> System: return Student
+deactivate Database
+
+System --> FinancialManager: showInstallments(student)
+deactivate System
+
+== انتخاب قسط ==
+FinancialManager -> System: selectInstallment(installmentId)
+activate System
+
+System -> Database: getInstallment(installmentId)
+activate Database
+Database --> System: return Installment
+deactivate Database
+
+== بررسی تاریخ سررسید ==
+System -> System: checkDueDate(installment)
+
+alt تاریخ سررسید گذشته است (تأخیر)
+    System -> System: calculatePenalty(amount, delayMonths)
+    note right: جریمه = مبلغ قسط × ۰.۰۲ × تعداد ماه‌های تأخیر
+end
+
+== ثبت پرداخت ==
+FinancialManager -> System: enterPaymentAmount(amount)
+FinancialManager -> System: selectPaymentMethod(method)
+
+System -> Database: savePayment(payment)
+activate Database
+Database --> System: payment saved
+deactivate Database
+
+== تولید رسید ==
+System -> System: generateTrackingCode()
+note right: شماره پیگیری یکتا تولید می‌شود
+
+System --> FinancialManager: showReceipt(receipt)
+deactivate System
+
+@enduml
