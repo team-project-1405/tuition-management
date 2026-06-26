@@ -1,0 +1,87 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="zQYRX3qf3rVrdzREh6P7">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iQjcttOoy6xma4twEA9K-83" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#21C0A5;strokeColor=#006658;fontColor=#5C5C5C;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="student" vertex="1">
+          <mxGeometry height="240" width="210" x="40" y="-660" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-62" parent="iQjcttOoy6xma4twEA9K-83" style="text;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#5C5C5C;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="- studentId: int&#xa;- firstName: string&#xa;- lastName: string&#xa;- nationalCode: string&#xa;- grade: string&#xa;- parentPhone: string&#xa;- status: string" vertex="1">
+          <mxGeometry height="120" width="210" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-85" parent="iQjcttOoy6xma4twEA9K-83" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006658;labelBackgroundColor=none;fontColor=#5C5C5C;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="" vertex="1">
+          <mxGeometry height="8" width="210" y="146" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-129" edge="1" parent="iQjcttOoy6xma4twEA9K-83" source="iQjcttOoy6xma4twEA9K-63" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=1;horizontal=1;labelBackgroundColor=none;strokeColor=#006658;sketch=1;curveFitting=1;jiggle=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="105" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-63" parent="iQjcttOoy6xma4twEA9K-83" style="text;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontColor=#5C5C5C;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="+ register()&#xa;+ editInfo()&#xa;+ search()&#xa;+ changeStatus()" vertex="1">
+          <mxGeometry height="86" width="210" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-94" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006658;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fillColor=#21C0A5;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="payment" vertex="1">
+          <mxGeometry height="226" width="160" x="370" y="-640" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-93" parent="iQjcttOoy6xma4twEA9K-94" style="text;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fontStyle=1;horizontal=1;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="- paymentId: int&#xa;- studentId: int&#xa;- amount: float&#xa;- paymentDate: date&#xa;- method: string&#xa;- isInstallment: boolean" vertex="1">
+          <mxGeometry height="124" width="160" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-96" parent="iQjcttOoy6xma4twEA9K-94" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006658;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fontStyle=1;horizontal=1;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="" vertex="1">
+          <mxGeometry height="10" width="160" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-98" parent="iQjcttOoy6xma4twEA9K-94" style="text;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fontStyle=1;horizontal=1;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="+ recordPayment()&#xa;+ generateReceipt()&#xa;+ calculateLateFee()" vertex="1">
+          <mxGeometry height="66" width="160" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-162" edge="1" parent="1" source="iQjcttOoy6xma4twEA9K-112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;shape=link;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="-260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-112" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006658;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fillColor=#21C0A5;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="financialfile" vertex="1">
+          <mxGeometry height="214" width="190" x="35" y="-360" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-117" parent="iQjcttOoy6xma4twEA9K-112" style="text;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fontStyle=1;horizontal=1;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="- fileId: int&#xa;- studentId: int&#xa;- totalTuition: float&#xa;- totalPaid: float&#xa;- totalDebt: float&#xa;- lastUpdate: date" vertex="1">
+          <mxGeometry height="110" width="190" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-114" parent="iQjcttOoy6xma4twEA9K-112" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006658;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fontStyle=1;horizontal=1;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="" vertex="1">
+          <mxGeometry height="8" width="190" y="136" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-118" parent="iQjcttOoy6xma4twEA9K-112" style="text;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fontStyle=1;horizontal=1;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="+ showInvoice()&#xa;+ updateFinancialStatus()&#xa;+ getTransactionHistory()" vertex="1">
+          <mxGeometry height="70" width="190" y="144" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-119" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#006658;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fillColor=#21C0A5;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="report" vertex="1">
+          <mxGeometry height="174" width="160" x="345" y="-360" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-123" parent="iQjcttOoy6xma4twEA9K-119" style="text;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fontStyle=1;horizontal=1;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="- reportId: int&#xa;- generatedDate: date&#xa;- type: string" vertex="1">
+          <mxGeometry height="70" width="160" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-121" parent="iQjcttOoy6xma4twEA9K-119" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#006658;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fontStyle=1;horizontal=1;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="" vertex="1">
+          <mxGeometry height="8" width="160" y="96" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-124" parent="iQjcttOoy6xma4twEA9K-119" style="text;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fontStyle=1;horizontal=1;labelBackgroundColor=none;rounded=1;sketch=1;curveFitting=1;jiggle=2;" value="+ generateDebtorList()&#xa;+ exportToPDF()&#xa;+ exportToExcel()" vertex="1">
+          <mxGeometry height="70" width="160" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-126" edge="1" parent="1" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=1;horizontal=1;endArrow=classic;endFill=1;labelBackgroundColor=none;strokeColor=#006658;sketch=1;curveFitting=1;jiggle=2;" value="">
+          <mxGeometry relative="1" width="100" as="geometry">
+            <Array as="points" />
+            <mxPoint x="260" y="-540" as="sourcePoint" />
+            <mxPoint x="360" y="-540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-131" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=1;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fontStyle=1;horizontal=1;labelBackgroundColor=none;sketch=1;curveFitting=1;jiggle=2;" value="1" vertex="1">
+          <mxGeometry height="30" width="60" x="320" y="-570" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-134" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=1;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fontStyle=1;horizontal=1;labelBackgroundColor=none;sketch=1;curveFitting=1;jiggle=2;" value="1" vertex="1">
+          <mxGeometry height="30" width="60" x="120" y="-430" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-135" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=1;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fontStyle=1;horizontal=1;labelBackgroundColor=none;sketch=1;curveFitting=1;jiggle=2;" value="1" vertex="1">
+          <mxGeometry height="30" width="60" x="100" y="-380" as="geometry" />
+        </mxCell>
+        <mxCell id="iQjcttOoy6xma4twEA9K-140" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=1;fontFamily=Helvetica;fontSize=12;fontColor=#5C5C5C;fontStyle=1;horizontal=1;labelBackgroundColor=none;sketch=1;curveFitting=1;jiggle=2;" value="1" vertex="1">
+          <mxGeometry height="30" width="60" x="230" y="-540" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
