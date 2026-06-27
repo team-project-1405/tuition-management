@@ -1,0 +1,56 @@
+@startuml
+' ============================================================
+' نمودار موارد کاربرد (Use Case Diagram)
+' سیستم مدیریت شهریه مجتمع آموزشی
+' ============================================================
+
+left to right direction
+skinparam packageStyle rectangle
+
+actor "مدیر مجتمع" as Manager
+actor "مدیر مالی" as FinancialManager
+actor "سیستم" as System
+
+rectangle "سیستم مدیریت شهریه" {
+  usecase "UC-01 ثبت دانش‌آموز جدید" as UC01
+  usecase "UC-02 ویرایش اطلاعات دانش‌آموز" as UC02
+  usecase "UC-03 حذف دانش‌آموز" as UC03
+  usecase "UC-04 جستجوی دانش‌آموزان" as UC04
+  usecase "UC-05 تغییر وضعیت تحصیلی" as UC05
+  usecase "UC-06 تعریف روش‌های پرداخت" as UC06
+  usecase "UC-07 تعریف برنامه قسطی" as UC07
+  usecase "UC-08 ثبت پرداخت جدید" as UC08
+  usecase "UC-09 تولید رسید پرداخت" as UC09
+  usecase "UC-10 محاسبه جریمه تأخیر" as UC10
+  usecase "UC-11 مشاهده صورتحساب" as UC11
+  usecase "UC-12 مشاهده تراکنش‌ها" as UC12
+  usecase "UC-13 مشاهده لیست بدهکاران" as UC13
+  usecase "UC-14 دریافت خروجی گزارش" as UC14
+  usecase "UC-15 مشاهده داشبورد" as UC15
+
+  ' ارتباط بازیگران با Use Caseها
+  Manager --> UC01
+  Manager --> UC02
+  Manager --> UC03
+  Manager --> UC04
+  Manager --> UC05
+
+  FinancialManager --> UC06
+  FinancialManager --> UC07
+  FinancialManager --> UC08
+  FinancialManager --> UC11
+  FinancialManager --> UC12
+  FinancialManager --> UC13
+  FinancialManager --> UC14
+  FinancialManager --> UC15
+
+  System --> UC09
+  System --> UC10
+
+  ' روابط Include و Extend
+  UC08 .> UC09 : <<include>>
+  UC08 .> UC10 : <<extend>>
+  UC14 .> UC13 : <<include>>
+}
+
+@enduml
