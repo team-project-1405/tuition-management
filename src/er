@@ -1,0 +1,88 @@
+@startuml
+' ============================================================
+' نمودار ER (Entity-Relationship) - سیستم مدیریت شهریه
+' ============================================================
+
+entity Student {
+  * studentId: int <<PK>>
+  --
+  firstName: String
+  lastName: String
+  nationalCode: String
+  grade: String
+  parentPhone: String
+  status: String
+}
+
+entity FinancialFile {
+  * fileId: int <<PK>>
+  --
+  * studentId: int <<FK>>
+  totalTuition: float
+  totalPaid: float
+  totalDebt: float
+  lastUpdate: Date
+}
+
+entity Installment {
+  * installmentId: int <<PK>>
+  --
+  * studentId: int <<FK>>
+  title: String
+  totalAmount: float
+  paidAmount: float
+  dueDate: Date
+  isPaid: boolean
+}
+
+entity Payment {
+  * paymentId: int <<PK>>
+  --
+  * installmentId: int <<FK>>
+  * methodId: int <<FK>>
+  amount: float
+  paymentDate: Date
+  referenceNumber: String
+  isSuccessful: boolean
+  description: String
+}
+
+entity Receipt {
+  * receiptId: int <<PK>>
+  --
+  * paymentId: int <<FK>>
+  receiptNumber: String
+  generatedDate: Date
+}
+
+entity PaymentMethod {
+  * methodId: int <<PK>>
+  --
+  name: String
+  methodType: String
+  isActive: boolean
+  description: String
+}
+
+entity Report {
+  * reportId: int <<PK>>
+  --
+  generatedDate: Date
+  type: String
+  data: String
+}
+
+' ============================================================
+' روابط (Relationships)
+' ============================================================
+
+Student -- FinancialFile : has
+Student ||--o{ Installment : has
+Student ||--o{ Payment : makes
+
+Installment ||--o{ Payment : includes
+
+Payment -- Receipt : generates
+Payment }o--|| PaymentMethod : uses
+
+@enduml
